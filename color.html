@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template</title>
+    <style>
+      .picker {
+        height: 120px;
+        width: 120px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div className="picker">
+
+      </div>
+    </div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your  code will go here
+   
+
+
+    function App(){
+        const [color,setColor] = React.useState("#ffff")
+        function change(e){
+            console.log("Length..",e.target.value.length);
+            if(e.target.value[0]=="#" && e.target.value.length>=3 && e.target.value.length<=7 ){
+                setColor(e.target.value)
+            }
+            
+             else{
+             console.log("Enter valid hexacode")
+             }
+            
+        }
+        return(
+            <>
+                <br/>
+                <input type ="text"  onChange={(e)=>change(e)}/>
+                <div className="picker" style={{backgroundColor:color}}></div>
+                
+                </>           
+        )
+    }
+    ReactDOM.render(<App/>, document.getElementById('root'))
+
+    
+  </script>
+</html>
